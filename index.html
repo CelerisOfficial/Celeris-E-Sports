@@ -1,154 +1,206 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>3D Flip Karakter Kartları</title>
-<style>
-  body {
-    background: #222;
-    font-family: Arial, sans-serif;
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    padding: 40px;
-  }
-
-  .card {
-    width: 200px;
-    height: 300px;
-    perspective: 1000px;
-    cursor: pointer;
-  }
-
-  .inner-card {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #111;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
-
-  .card:hover .inner-card {
-    transform: rotateY(180deg);
-  }
-
-  .front, .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    backface-visibility: hidden;
-    background: #333;
-    color: #eee;
-    box-shadow: inset 0 0 15px #555;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .front img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-
-  .back {
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .name {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-
-  .age {
-    font-size: 1.1em;
-  }
-
-  .flag-tr {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 28px;
-    height: 20px;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg') no-repeat center center;
-    background-size: contain;
-    border-radius: 3px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Celeris Esports Takımı</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      background-color: #222;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 3px solid #d4a017;
+    }
+    header img {
+      height: 60px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      color: #d4a017;
+      margin: 0;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    nav {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 15px 0;
+      border-bottom: 2px solid #d4a017;
+    }
+    nav a {
+      color: #d4a017;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2, h3 {
+      color: #d4a017;
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    li {
+      background: #222;
+      margin-bottom: 10px;
+      padding: 15px;
+      border-left: 5px solid #d4a017;
+      font-weight: 600;
+      font-size: 1.05rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #d4a017;
+      cursor: pointer;
+      perspective: 800px; /* 3D efekt için perspektif */
+      transition: transform 0.5s ease;
+    }
+    li:hover {
+      transform: rotateY(-25deg) rotateX(5deg) translateZ(20px);
+      box-shadow: 0 15px 30px #d4a017;
+      z-index: 10;
+    }
+    li img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      box-shadow: 0 0 10px #d4a017;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+    li:hover img {
+      transform: rotateY(-25deg);
+    }
+    li span.name {
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    li span.role {
+      font-weight: 400;
+      font-style: italic;
+      color: #bbb;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    li span.flag-emoji {
+      font-size: 1.3rem;
+      margin-top: 8px;
+    }
+    footer.footer {
+      background-color: #222;
+      color: #999;
+      text-align: center;
+      padding: 18px 0;
+      font-size: 0.9rem;
+      border-top: 2px solid #d4a017;
+      margin-top: 50px;
+    }
+    /* Haberler listesi */
+    .news p {
+      background: #222;
+      padding: 15px 20px;
+      border-left: 5px solid #d4a017;
+      font-weight: 600;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+    /* İletişim linkleri */
+    .contact a {
+      color: #d4a017;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="celeris_logo.png" alt="Celeris Logo" />
+    <h1>Celeris Esports</h1>
+  </header>
+  <nav>
+    <a href="#takim">Takım</a>
+    <a href="#haberler">Son Haberler</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+  <main>
+    <section id="takim">
+      <h2>Takım Kadrosu</h2>
+      <ul>
+        <li>
+          <img src="https://i.pravatar.cc/130?img=12" alt="The Kenami" />
+          <span class="name">The Kenami</span>
+          <span class="role">IGL - Rifler</span>
+          <span class="flag-emoji">🇹🇷</span>
+        </li>
+        <li>
+          <img src="https://i.pravatar.cc/130?img=27" alt="UnderStudio" />
+          <span class="name">UnderStudio</span>
+          <span class="role">AWPer</span>
+          <span class="flag-emoji">🇹🇷</span>
+        </li>
+        <li>
+          <img src="https://i.pravatar.cc/130?img=31" alt="ClassDPersonel" />
+          <span class="name">ClassDPersonel</span>
+          <span class="role">Lurker</span>
+          <span class="flag-emoji">🇹🇷</span>
+        </li>
+        <li>
+          <img src="https://i.pravatar.cc/130?img=44" alt="Emox" />
+          <span class="name">Emox</span>
+          <span class="role">Rifler</span>
+          <span class="flag-emoji">🇹🇷</span>
+        </li>
+      </ul>
+    </section>
 
-<div class="card">
-  <div class="inner-card">
-    <div class="front">
-      <div class="flag-tr" title="Türkiye"></div>
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABbElEQVR4nO3QwQnCMBBA0f7/P6JZ4aPazYbKRbGlpsdM6dcy9rfD+wSCBAgQIAAAQIECBAgQKBJBOC7+A7PyDcKCr5F1NMyvFBS90fsAz3g9kQUh9HxDD4PaKhj1AFCvhu8DgXmzvPhCA4vkSAk5YLyEYLGcWEIuQfIBVBiOQTiC4IrgDyEyJXAYil4fgAGjIU6aQxUP2gwcy3YGcIqLkE+MDqkWq4PlARs8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBfqZnpYy42aLHt+AAAAAElFTkSuQmCC" alt="The Kenami" />
-      <div class="name">The Kenami</div>
-      <div class="age">Yaş: 26</div>
-    </div>
-    <div class="back">
-      <div class="name">The Kenami</div>
-      <div class="age">Yaş: 26</div>
-      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
-    </div>
-  </div>
-</div>
+    <section id="haberler" class="news">
+      <h2>Son Haberler</h2>
+      <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
+      <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
+      <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
+    </section>
 
-<div class="card">
-  <div class="inner-card">
-    <div class="front">
-      <div class="flag-tr" title="Türkiye"></div>
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR4nO3QMQqDMBAF0LdD/HRkQ+P15ZiEJJGqblBqjoR97g4s5ggN2zy4gQIECAAAECBAgQCBQhpH3c4xOm+EoFso+9hJOoLx9QDOz13kmkEwf+FQDGP0EYIqFgcMT3GzPAOGt+Bj3PF6OgG9C7vL4pAzXgTC04bUCO+jGxRkg6CV5I4HRLBqSGyVEqCl5V4GhKBpSF+S0p0tEqCnQ7ISYKmBO5Mqw1DpBIZCMFkaX0HaS7RbpkIwdRMeSWYKP8v8V8Ek3MFqil5P0OkZ8SsoXFejLT5JKCPQWkhZKw4vThlpNGo8UczXj1rti+Pi/BcYUECBAgQIAAAQIECBAgQED+BrbpgkLO3Rj1AAAAAElFTkSuQmCC" alt="UnderStudio" />
-      <div class="name">UnderStudio</div>
-      <div class="age">Yaş: 13</div>
-    </div>
-    <div class="back">
-      <div class="name">UnderStudio</div>
-      <div class="age">Yaş: 13</div>
-      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
-    </div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="inner-card">
-    <div class="front">
-      <div class="flag-tr" title="Türkiye"></div>
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABYklEQVR4nO3TMQ6DMAwF4G2Yb8tv9Mp0jYhmKi7ONbq3t9MZLiEjL9m0ECBAgQIAAAQIECBAgQCAQI0kFw+PZjAzHcBwrjA0PrXETGsjS+G6d4a+MLC/0FLBEQYI5FQUOw1HgOkAAxWDh6DAew4pAgHQEOh0DgSA4EgOBIA6HQOBAi7w85FIf7QELiGB6Bo4PYClqfGcg1BO9Ag7Jo0/BHCI8yD0OiJFiw8QIqBlp7gHqmcMoGBAwmg6Qi4AoNG5ZoOCZD1y4MTL6d8LCwrAyTwy1eQQg50Oh7CH0aPO7Vx5GrsOXe7PA3LBw4l4+qROpxOY3ieYuIAECBAgQIECAAAECBPwATnJ24uqXFcHAAAAAElFTkSuQmCC" alt="ClassDPersonel" />
-      <div class="name">ClassDPersonel</div>
-      <div class="age">Yaş: 22</div>
-    </div>
-    <div class="back">
-      <div class="name">ClassDPersonel</div>
-      <div class="age">Yaş: 22</div>
-      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
-    </div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="inner-card">
-    <div class="front">
-      <div class="flag-tr" title="Türkiye"></div>
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVklEQVR4nO3TsQ0AMAjF4b9BdND+G7LczKY7SpLi9tywZdh5UZk7+T+hChAgQIAAAQIECBAgQIBAhQwqX3eD4D4NZn0B5XA+u6+u3aK7QB6cDG+e9u9h/0ImBdDMkRCXQcU2mLcNnA6DLOj8q9tLwOkF7w8Go9mNH3A5+GQ8DYOo/YRbgBQxmB6oAh+JEOiMH4/1yA9dDNkRjhqOyg9kQUOw1HgOkAAxWDh6DAew4pAgHQEOh0DgSA4EgOBIA6HQOBAr9QvyVPMXA4/HePBeOCZVdOPnPIMAwgQIAAAQIECBAgQIBA0IAXxPtZuk1EF+RgAAAABJRU5ErkJggg==" alt="Emox" />
-      <div class="name">Emox</div>
-      <div class="age">Yaş: 19</div>
-    </div>
-    <div class="back">
-      <div class="name">Emox</div>
-      <div class="age">Yaş: 19</div>
-      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
-    </div>
-  </div>
-</div>
-
+    <section id="iletisim" class="contact">
+      <h3>İletişim</h3>
+      <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
+      <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
+    </section>
+  </main>
+  <footer class="footer">
+    &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
+  </footer>
 </body>
 </html>
