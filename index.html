@@ -10,6 +10,7 @@
     color: #eee;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0; padding: 0;
+    overflow-x: hidden;
   }
   header {
     background-color: #222;
@@ -51,6 +52,25 @@
     max-width: 900px;
     margin: 30px auto;
     padding: 0 20px;
+    position: relative;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+  /* Sağ ve sol dekor kutuları */
+  .side-decor {
+    width: 100px;
+    background: linear-gradient(135deg, #d4a017 20%, transparent 80%);
+    border-radius: 20px;
+    box-shadow: 0 0 15px #d4a017aa;
+    height: 400px;
+    position: sticky;
+    top: 100px;
+  }
+  /* Ana içerik */
+  .content {
+    flex-grow: 1;
+    max-width: 700px;
   }
   section {
     margin-bottom: 40px;
@@ -70,58 +90,29 @@
   li.card {
     background: #222;
     border-left: 5px solid #d4a017;
-    padding: 15px;
-    width: 150px;
+    padding: 25px 15px;
+    width: 160px;
     text-align: center;
-    cursor: pointer;
-    perspective: 800px;
+    cursor: default;
     border-radius: 10px;
     box-shadow: 0 0 8px #d4a017;
     user-select: none;
-
-    /* 3D dönüş için */
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+    transition: box-shadow 0.3s;
   }
   li.card:hover {
-    transform: rotateY(-75deg) translateZ(35px);
-    box-shadow: 0 15px 30px #d4a017;
-    z-index: 10;
+    box-shadow: 0 0 25px #d4a017;
   }
-  li.card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 12px #d4a017;
-
-    /* backface visibility ile sorun çözümü */
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  li.card:hover img {
-    transform: rotateY(-75deg);
-  }
-  li.card h3, li.card p {
-    /* yazılar kartla beraber dönmesin */
-    position: relative;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    margin: 5px 0;
+  li.card h3 {
     color: #d4a017;
     font-weight: 700;
-    text-shadow: 0 0 5px #d4a017;
-    transition: color 0.3s;
+    margin-bottom: 6px;
+    font-size: 1.3rem;
   }
   li.card p {
     font-style: italic;
     font-weight: 500;
     color: #bbb;
-    text-shadow: none;
-  }
-  li.card:hover h3, li.card:hover p {
-    color: #fff;
+    margin: 0;
   }
   footer.footer {
     background-color: #222;
@@ -164,44 +155,46 @@
   <a href="#iletisim">İletişim</a>
 </nav>
 <main>
-  <section id="takim">
-    <h2>Takım Kadrosu</h2>
-    <ul class="cards">
-      <li class="card">
-        <img src="https://thispersondoesnotexist.com/image" alt="The Kenami" />
-        <h3>The Kenami</h3>
-        <p>IGL - Rifler</p>
-      </li>
-      <li class="card">
-        <img src="https://thispersondoesnotexist.com/image" alt="UnderStudio" />
-        <h3>UnderStudio</h3>
-        <p>AWPer</p>
-      </li>
-      <li class="card">
-        <img src="https://thispersondoesnotexist.com/image" alt="ClassDPersonel" />
-        <h3>ClassDPersonel</h3>
-        <p>Lurker</p>
-      </li>
-      <li class="card">
-        <img src="https://thispersondoesnotexist.com/image" alt="Emox" />
-        <h3>Emox</h3>
-        <p>Rifler</p>
-      </li>
-    </ul>
-  </section>
+  <div class="side-decor"></div>
 
-  <section id="haberler" class="news">
-    <h2>Son Haberler</h2>
-    <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
-    <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
-    <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
-  </section>
+  <div class="content">
+    <section id="takim">
+      <h2>Takım Kadrosu</h2>
+      <ul class="cards">
+        <li class="card">
+          <h3>The Kenami</h3>
+          <p>IGL - Rifler</p>
+        </li>
+        <li class="card">
+          <h3>UnderStudio</h3>
+          <p>AWPer</p>
+        </li>
+        <li class="card">
+          <h3>ClassDPersonel</h3>
+          <p>Lurker</p>
+        </li>
+        <li class="card">
+          <h3>Emox</h3>
+          <p>Rifler</p>
+        </li>
+      </ul>
+    </section>
 
-  <section id="iletisim" class="contact">
-    <h3>İletişim</h3>
-    <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
-    <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
-  </section>
+    <section id="haberler" class="news">
+      <h2>Son Haberler</h2>
+      <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
+      <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
+      <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
+    </section>
+
+    <section id="iletisim" class="contact">
+      <h3>İletişim</h3>
+      <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
+      <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
+    </section>
+  </div>
+
+  <div class="side-decor"></div>
 </main>
 <footer class="footer">
   &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
