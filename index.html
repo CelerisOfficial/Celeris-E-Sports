@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Celeris Esports Takımı</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      background-color: #222;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 3px solid #d4a017;
+    }
+    header img {
+      height: 60px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      color: #d4a017;
+      margin: 0;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    nav {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 15px 0;
+      border-bottom: 2px solid #d4a017;
+    }
+    nav a {
+      color: #d4a017;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2, h3 {
+      color: #d4a017;
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      background: #222;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      border-left: 5px solid #d4a017;
+      font-weight: 600;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li span.role {
+      font-weight: 400;
+      font-style: italic;
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+    footer.footer {
+      background-color: #222;
+      color: #999;
+      text-align: center;
+      padding: 18px 0;
+      font-size: 0.9rem;
+      border-top: 2px solid #d4a017;
+      margin-top: 50px;
+    }
+    /* Haberler listesi */
+    .news p {
+      background: #222;
+      padding: 15px 20px;
+      border-left: 5px solid #d4a017;
+      font-weight: 600;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+    /* İletişim linkleri */
+    .contact a {
+      color: #d4a017;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    /* Bayrak emoji yanına küçük boşluk */
+    .flag-emoji {
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="celeris_logo.png" alt="Celeris Logo" />
+    <h1>Celeris Esports</h1>
+  </header>
+  <nav>
+    <a href="#takim">Takım</a>
+    <a href="#haberler">Son Haberler</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+  <main>
+    <section id="takim">
+      <h2>Takım Kadrosu</h2>
+      <ul>
+        <li>The Kenami <span class="role">IGL - Rifler</span> <span class="flag-emoji">🇹🇷</span></li>
+        <li>UnderStudio <span class="role">AWPer</span> <span class="flag-emoji">🇹🇷</span></li>
+        <li>ClassDPersonel <span class="role">Lurker</span> <span class="flag-emoji">🇹🇷</span></li>
+        <li>Emox <span class="role">Rifler</span> <span class="flag-emoji">🇹🇷</span></li>
+      </ul>
+    </section>
+
+    <section id="haberler" class="news">
+      <h2>Son Haberler</h2>
+      <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
+      <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
+      <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
+    </section>
+
+    <section id="iletisim" class="contact">
+      <h3>İletişim</h3>
+      <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
+      <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
+    </section>
+  </main>
+  <footer class="footer">
+    &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
+  </footer>
+</body>
+</html>
