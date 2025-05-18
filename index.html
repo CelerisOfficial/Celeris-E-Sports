@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
@@ -60,35 +59,56 @@
       color: #d4a017;
       margin-bottom: 15px;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    li {
-      background: #222;
-      margin-bottom: 10px;
-      padding: 10px 15px;
-      border-left: 5px solid #d4a017;
-      font-weight: 600;
-      font-size: 1.05rem;
+    /* Kartlar için */
+    .cards {
+      list-style: none;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 20px;
+      padding-left: 0;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    li span.role {
+    .card {
+      background: #222;
+      border-left: 5px solid #d4a017;
+      padding: 15px;
+      width: 180px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #d4a017;
+    }
+    .card:hover {
+      transform: rotateY(-15deg) translateZ(10px);
+      box-shadow: 0 0 15px #ffd700;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      height: 180px;
+      object-fit: cover;
+      filter: brightness(1.1);
+      border: 2px solid #d4a017;
+    }
+    .card p {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin: 0 0 5px 0;
+    }
+    .card span.role {
       font-weight: 400;
       font-style: italic;
       color: #bbb;
       font-size: 0.95rem;
+      display: block;
     }
-    footer.footer {
-      background-color: #222;
-      color: #999;
-      text-align: center;
-      padding: 18px 0;
-      font-size: 0.9rem;
-      border-top: 2px solid #d4a017;
-      margin-top: 50px;
+    .flag-emoji {
+      margin-left: 8px;
+      font-size: 1.3rem;
+      vertical-align: middle;
     }
     /* Haberler listesi */
     .news p {
@@ -108,10 +128,6 @@
     .contact a:hover {
       text-decoration: underline;
     }
-    /* Bayrak emoji yanına küçük boşluk */
-    .flag-emoji {
-      margin-left: 8px;
-    }
   </style>
 </head>
 <body>
@@ -127,11 +143,27 @@
   <main>
     <section id="takim">
       <h2>Takım Kadrosu</h2>
-      <ul>
-        <li>The Kenami <span class="role">IGL - Rifler</span> <span class="flag-emoji">🇹🇷</span></li>
-        <li>UnderStudio <span class="role">AWPer</span> <span class="flag-emoji">🇹🇷</span></li>
-        <li>ClassDPersonel <span class="role">Lurker</span> <span class="flag-emoji">🇹🇷</span></li>
-        <li>Emox <span class="role">Rifler</span> <span class="flag-emoji">🇹🇷</span></li>
+      <ul class="cards">
+        <li class="card">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...snipped for brevity...">
+          <p>The Kenami <span class="flag-emoji">🇹🇷</span></p>
+          <span class="role">IGL - Rifler</span>
+        </li>
+        <li class="card">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...snipped for brevity...">
+          <p>UnderStudio <span class="flag-emoji">🇹🇷</span></p>
+          <span class="role">AWPer</span>
+        </li>
+        <li class="card">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...snipped for brevity...">
+          <p>ClassDPersonel <span class="flag-emoji">🇹🇷</span></p>
+          <span class="role">Lurker</span>
+        </li>
+        <li class="card">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...snipped for brevity...">
+          <p>Emox <span class="flag-emoji">🇹🇷</span></p>
+          <span class="role">Rifler</span>
+        </li>
       </ul>
     </section>
 
