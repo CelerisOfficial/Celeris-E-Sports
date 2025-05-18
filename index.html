@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Karakter Kartları</title>
+<title>3D Flip Karakter Kartları</title>
 <style>
   body {
     background: #222;
     font-family: Arial, sans-serif;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
     padding: 40px;
   }
@@ -17,86 +17,137 @@
   .card {
     width: 200px;
     height: 300px;
-    background: #333;
-    border-radius: 15px;
-    color: #eee;
-    box-shadow: 0 0 10px #111;
     perspective: 1000px;
     cursor: pointer;
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
+  }
+
+  .inner-card {
     position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #111;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .card:hover .inner-card {
+    transform: rotateY(180deg);
+  }
+
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    background: #333;
+    color: #eee;
+    box-shadow: inset 0 0 15px #555;
     padding: 20px;
+    box-sizing: border-box;
   }
 
-  .card:hover {
-    transform: rotateY(-40deg) translateZ(15px);
-    box-shadow: 0 0 25px #ffd700;
-  }
-
-  .card img {
+  .front img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 10px;
   }
 
+  .back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .name {
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 6px;
   }
 
   .age {
-    font-size: 0.9em;
-    margin-bottom: 10px;
+    font-size: 1.1em;
   }
 
-  .country {
+  .flag-tr {
     position: absolute;
     top: 15px;
     right: 15px;
     width: 28px;
     height: 20px;
-  }
-
-  /* TR bayrağı için örnek stil */
-  .flag-tr {
     background: url('https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg') no-repeat center center;
     background-size: contain;
-    width: 28px;
-    height: 20px;
     border-radius: 3px;
   }
-
 </style>
 </head>
 <body>
 
 <div class="card">
-  <div class="flag-tr" title="Türkiye"></div>
-  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABbElEQVR4nO3QwQnCMBBA0f7/P6JZ4aPazYbKRbGlpsdM6dcy9rfD+wSCBAgQIAAAQIECBAgQKBJBOC7+A7PyDcKCr5F1NMyvFBS90fsAz3g9kQUh9HxDD4PaKhj1AFCvhu8DgXmzvPhCA4vkSAk5YLyEYLGcWEIuQfIBVBiOQTiC4IrgDyEyJXAYil4fgAGjIU6aQxUP2gwcy3YGcIqLkE+MDqkWq4PlARs8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBfqZnpYy42aLHt+AAAAAElFTkSuQmCC" alt="The Kenami" />
-  <div class="name">The Kenami</div>
-  <div class="age">Yaş: 26</div>
+  <div class="inner-card">
+    <div class="front">
+      <div class="flag-tr" title="Türkiye"></div>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABbElEQVR4nO3QwQnCMBBA0f7/P6JZ4aPazYbKRbGlpsdM6dcy9rfD+wSCBAgQIAAAQIECBAgQKBJBOC7+A7PyDcKCr5F1NMyvFBS90fsAz3g9kQUh9HxDD4PaKhj1AFCvhu8DgXmzvPhCA4vkSAk5YLyEYLGcWEIuQfIBVBiOQTiC4IrgDyEyJXAYil4fgAGjIU6aQxUP2gwcy3YGcIqLkE+MDqkWq4PlARs8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBRr8TAQ6i5BeQXMCqkWq4PlBfqZnpYy42aLHt+AAAAAElFTkSuQmCC" alt="The Kenami" />
+      <div class="name">The Kenami</div>
+      <div class="age">Yaş: 26</div>
+    </div>
+    <div class="back">
+      <div class="name">The Kenami</div>
+      <div class="age">Yaş: 26</div>
+      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <div class="flag-tr" title="Türkiye"></div>
-  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR4nO3QMQqDMBAF0LdD/HRkQ+P15ZiEJJGqblBqjoR97g4s5ggN2zy4gQIECAAAECBAgQCBQhpH3c4xOm+EoFso+9hJOoLx9QDOz13kmkEwf+FQDGP0EYIqFgcMT3GzPAOGt+Bj3PF6OgG9C7vL4pAzXgTC04bUCO+jGxRkg6CV5I4HRLBqSGyVEqCl5V4GhKBpSF+S0p0tEqCnQ7ISYKmBO5Mqw1DpBIZCMFkaX0HaS7RbpkIwdRMeSWYKP8v8V8Ek3MFqil5P0OkZ8SsoXFejLT5JKCPQWkhZKw4vThlpNGo8UczXj1rti+Pi/BcYUECBAgQIAAAQIECBAgQED+BrbpgkLO3Rj1AAAAAElFTkSuQmCC" alt="UnderStudio" />
-  <div class="name">UnderStudio</div>
-  <div class="age">Yaş: 13</div>
+  <div class="inner-card">
+    <div class="front">
+      <div class="flag-tr" title="Türkiye"></div>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR4nO3QMQqDMBAF0LdD/HRkQ+P15ZiEJJGqblBqjoR97g4s5ggN2zy4gQIECAAAECBAgQCBQhpH3c4xOm+EoFso+9hJOoLx9QDOz13kmkEwf+FQDGP0EYIqFgcMT3GzPAOGt+Bj3PF6OgG9C7vL4pAzXgTC04bUCO+jGxRkg6CV5I4HRLBqSGyVEqCl5V4GhKBpSF+S0p0tEqCnQ7ISYKmBO5Mqw1DpBIZCMFkaX0HaS7RbpkIwdRMeSWYKP8v8V8Ek3MFqil5P0OkZ8SsoXFejLT5JKCPQWkhZKw4vThlpNGo8UczXj1rti+Pi/BcYUECBAgQIAAAQIECBAgQED+BrbpgkLO3Rj1AAAAAElFTkSuQmCC" alt="UnderStudio" />
+      <div class="name">UnderStudio</div>
+      <div class="age">Yaş: 13</div>
+    </div>
+    <div class="back">
+      <div class="name">UnderStudio</div>
+      <div class="age">Yaş: 13</div>
+      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <div class="flag-tr" title="Türkiye"></div>
-  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABYklEQVR4nO3TMQ6DMAwF4G2Yb8tv9Mp0jYhmKi7ONbq3t9MZLiEjL9m0ECBAgQIAAAQIECBAgQCAQI0kFw+PZjAzHcBwrjA0PrXETGsjS+G6d4a+MLC/0FLBEQYI5FQUOw1HgOkAAxWDh6DAew4pAgHQEOh0DgSA4EgOBIA6HQOBAi7w85FIf7QELiGB6Bo4PYClqfGcg1BO9Ag7Jo0/BHCI8yD0OiJFiw8QIqBlp7gHqmcMoGBAwmg6Qi4AoNG5ZoOCZD1y4MTL6d8LCwrAyTwy1eQQg50Oh7CH0aPO7Vx5GrsOXe7PA3LBw4l4+qROpxOY3ieYuIAECBAgQIECAAAECBPwATnJ24uqXFcHAAAAAElFTkSuQmCC" alt="ClassDPersonel" />
-  <div class="name">ClassDPersonel</div>
-  <div class="age">Yaş: 22</div>
+  <div class="inner-card">
+    <div class="front">
+      <div class="flag-tr" title="Türkiye"></div>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABYklEQVR4nO3TMQ6DMAwF4G2Yb8tv9Mp0jYhmKi7ONbq3t9MZLiEjL9m0ECBAgQIAAAQIECBAgQCAQI0kFw+PZjAzHcBwrjA0PrXETGsjS+G6d4a+MLC/0FLBEQYI5FQUOw1HgOkAAxWDh6DAew4pAgHQEOh0DgSA4EgOBIA6HQOBAi7w85FIf7QELiGB6Bo4PYClqfGcg1BO9Ag7Jo0/BHCI8yD0OiJFiw8QIqBlp7gHqmcMoGBAwmg6Qi4AoNG5ZoOCZD1y4MTL6d8LCwrAyTwy1eQQg50Oh7CH0aPO7Vx5GrsOXe7PA3LBw4l4+qROpxOY3ieYuIAECBAgQIECAAAECBPwATnJ24uqXFcHAAAAAElFTkSuQmCC" alt="ClassDPersonel" />
+      <div class="name">ClassDPersonel</div>
+      <div class="age">Yaş: 22</div>
+    </div>
+    <div class="back">
+      <div class="name">ClassDPersonel</div>
+      <div class="age">Yaş: 22</div>
+      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <div class="flag-tr" title="Türkiye"></div>
-  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVklEQVR4nO3TsQ0AMAjF4b9BdND+G7LczKY7SpLi9tywZdh5UZk7+T+hChAgQIAAAQIECBAgQIBAhQwqX3eD4D4NZn0B5XA+u6+u3aK7QB6cDG+e9u9h/0ImBdDMkRCXQcU2mLcNnA6DLOj8q9tLwOkF7w8Go9mNH3A5+GQ8DYOo/YRbgBQxmB6oAh+JEOiMH4/1yA9dDNkRjhqOyg9kQUOw1HgOkAAxWDh6DAew4pAgHQEOh0DgSA4EgOBIA6HQOBAr9QvyVPMXA4/HePBeOCZVdOPnPIMAwgQIAAAQIECBAgQIBA0IAXxPtZuk1EF+RgAAAABJRU5ErkJggg==" alt="Emox" />
-  <div class="name">Emox</div>
-  <div class="age">Yaş: 19</div>
+  <div class="inner-card">
+    <div class="front">
+      <div class="flag-tr" title="Türkiye"></div>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAClcFlEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVklEQVR4nO3TsQ0AMAjF4b9BdND+G7LczKY7SpLi9tywZdh5UZk7+T+hChAgQIAAAQIECBAgQIBAhQwqX3eD4D4NZn0B5XA+u6+u3aK7QB6cDG+e9u9h/0ImBdDMkRCXQcU2mLcNnA6DLOj8q9tLwOkF7w8Go9mNH3A5+GQ8DYOo/YRbgBQxmB6oAh+JEOiMH4/1yA9dDNkRjhqOyg9kQUOw1HgOkAAxWDh6DAew4pAgHQEOh0DgSA4EgOBIA6HQOBAr9QvyVPMXA4/HePBeOCZVdOPnPIMAwgQIAAAQIECBAgQIBA0IAXxPtZuk1EF+RgAAAABJRU5ErkJggg==" alt="Emox" />
+      <div class="name">Emox</div>
+      <div class="age">Yaş: 19</div>
+    </div>
+    <div class="back">
+      <div class="name">Emox</div>
+      <div class="age">Yaş: 19</div>
+      <p>Ekstra bilgi veya açıklama burada olabilir.</p>
+    </div>
+  </div>
 </div>
 
 </body>
