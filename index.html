@@ -1,210 +1,210 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Celeris Esports Takımı</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: #eee;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-    }
-    header {
-      background-color: #222;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      border-bottom: 3px solid #d4a017;
-    }
-    header img {
-      height: 60px;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      color: #d4a017;
-      margin: 0;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    nav {
-      background-color: #1e1e1e;
-      display: flex;
-      justify-content: center;
-      gap: 35px;
-      padding: 15px 0;
-      border-bottom: 2px solid #d4a017;
-    }
-    nav a {
-      color: #d4a017;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #fff;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    h2, h3 {
-      color: #d4a017;
-      margin-bottom: 15px;
-    }
-    ul.cards {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      padding-left: 0;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    li.card {
-      background: #222;
-      border-left: 5px solid #d4a017;
-      padding: 15px;
-      width: 150px;
-      text-align: center;
-      cursor: pointer;
-      perspective: 800px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px #d4a017;
-      user-select: none;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Celeris Esports Takımı</title>
+<style>
+  body {
+    background-color: #121212;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+  }
+  header {
+    background-color: #222;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 3px solid #d4a017;
+  }
+  header img {
+    height: 60px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    color: #d4a017;
+    margin: 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  nav {
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 15px 0;
+    border-bottom: 2px solid #d4a017;
+  }
+  nav a {
+    color: #d4a017;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: #fff;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  h2, h3 {
+    color: #d4a017;
+    margin-bottom: 15px;
+  }
+  ul.cards {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  li.card {
+    background: #222;
+    border-left: 5px solid #d4a017;
+    padding: 15px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    perspective: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #d4a017;
+    user-select: none;
 
-      /* 3D dönüş için */
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-    li.card:hover {
-      transform: rotateY(-70deg) translateZ(30px);
-      box-shadow: 0 15px 30px #d4a017;
-      z-index: 10;
-    }
-    li.card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 12px #d4a017;
+    /* 3D dönüş için */
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  li.card:hover {
+    transform: rotateY(-75deg) translateZ(35px);
+    box-shadow: 0 15px 30px #d4a017;
+    z-index: 10;
+  }
+  li.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 12px #d4a017;
 
-      /* Görünmezlik önle */
-      backface-visibility: visible;
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    li.card:hover img {
-      transform: rotateY(-70deg);
-    }
-    li.card h3, li.card p {
-      /* yazılar kartla beraber dönmesin */
-      position: relative;
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
-      margin: 5px 0;
-      color: #d4a017;
-      font-weight: 700;
-      text-shadow: 0 0 5px #d4a017;
-      transition: color 0.3s;
-    }
-    li.card p {
-      font-style: italic;
-      font-weight: 500;
-      color: #bbb;
-      text-shadow: none;
-    }
-    li.card:hover h3, li.card:hover p {
-      color: #fff;
-    }
-    footer.footer {
-      background-color: #222;
-      color: #999;
-      text-align: center;
-      padding: 18px 0;
-      font-size: 0.9rem;
-      border-top: 2px solid #d4a017;
-      margin-top: 50px;
-    }
-    .news p {
-      background: #222;
-      padding: 15px 20px;
-      border-left: 5px solid #d4a017;
-      font-weight: 600;
-      margin-bottom: 15px;
-      border-radius: 4px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .contact a {
-      color: #d4a017;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    /* backface visibility ile sorun çözümü */
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  li.card:hover img {
+    transform: rotateY(-75deg);
+  }
+  li.card h3, li.card p {
+    /* yazılar kartla beraber dönmesin */
+    position: relative;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    margin: 5px 0;
+    color: #d4a017;
+    font-weight: 700;
+    text-shadow: 0 0 5px #d4a017;
+    transition: color 0.3s;
+  }
+  li.card p {
+    font-style: italic;
+    font-weight: 500;
+    color: #bbb;
+    text-shadow: none;
+  }
+  li.card:hover h3, li.card:hover p {
+    color: #fff;
+  }
+  footer.footer {
+    background-color: #222;
+    color: #999;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 0.9rem;
+    border-top: 2px solid #d4a017;
+    margin-top: 50px;
+  }
+  .news p {
+    background: #222;
+    padding: 15px 20px;
+    border-left: 5px solid #d4a017;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact a {
+    color: #d4a017;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .contact a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <img src="celeris_logo.png" alt="Celeris Logo" />
-    <h1>Celeris Esports</h1>
-  </header>
-  <nav>
-    <a href="#takim">Takım</a>
-    <a href="#haberler">Son Haberler</a>
-    <a href="#iletisim">İletişim</a>
-  </nav>
-  <main>
-    <section id="takim">
-      <h2>Takım Kadrosu</h2>
-      <ul class="cards">
-        <li class="card">
-          <img src="https://i.imgur.com/9c0Sb0x.jpg" alt="The Kenami" />
-          <h3>The Kenami</h3>
-          <p>IGL - Rifler</p>
-        </li>
-        <li class="card">
-          <img src="https://i.imgur.com/WZn8bRw.jpg" alt="UnderStudio" />
-          <h3>UnderStudio</h3>
-          <p>AWPer</p>
-        </li>
-        <li class="card">
-          <img src="https://i.imgur.com/1XtUu5C.jpg" alt="ClassDPersonel" />
-          <h3>ClassDPersonel</h3>
-          <p>Lurker</p>
-        </li>
-        <li class="card">
-          <img src="https://i.imgur.com/DHTQdYO.jpg" alt="Emox" />
-          <h3>Emox</h3>
-          <p>Rifler</p>
-        </li>
-      </ul>
-    </section>
+<header>
+  <img src="celeris_logo.png" alt="Celeris Logo" />
+  <h1>Celeris Esports</h1>
+</header>
+<nav>
+  <a href="#takim">Takım</a>
+  <a href="#haberler">Son Haberler</a>
+  <a href="#iletisim">İletişim</a>
+</nav>
+<main>
+  <section id="takim">
+    <h2>Takım Kadrosu</h2>
+    <ul class="cards">
+      <li class="card">
+        <img src="https://thispersondoesnotexist.com/image" alt="The Kenami" />
+        <h3>The Kenami</h3>
+        <p>IGL - Rifler</p>
+      </li>
+      <li class="card">
+        <img src="https://thispersondoesnotexist.com/image" alt="UnderStudio" />
+        <h3>UnderStudio</h3>
+        <p>AWPer</p>
+      </li>
+      <li class="card">
+        <img src="https://thispersondoesnotexist.com/image" alt="ClassDPersonel" />
+        <h3>ClassDPersonel</h3>
+        <p>Lurker</p>
+      </li>
+      <li class="card">
+        <img src="https://thispersondoesnotexist.com/image" alt="Emox" />
+        <h3>Emox</h3>
+        <p>Rifler</p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="haberler" class="news">
-      <h2>Son Haberler</h2>
-      <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
-      <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
-      <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
-    </section>
+  <section id="haberler" class="news">
+    <h2>Son Haberler</h2>
+    <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
+    <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
+    <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
+  </section>
 
-    <section id="iletisim" class="contact">
-      <h3>İletişim</h3>
-      <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
-      <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
-    </section>
-  </main>
-  <footer class="footer">
-    &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
-  </footer>
+  <section id="iletisim" class="contact">
+    <h3>İletişim</h3>
+    <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
+    <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
+  </section>
+</main>
+<footer class="footer">
+  &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
+</footer>
 </body>
 </html>
