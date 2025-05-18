@@ -49,14 +49,13 @@
     color: #fff;
   }
   main {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 30px auto;
     padding: 0 20px;
     display: flex;
     gap: 40px;
     justify-content: center;
   }
-
   /* Sağ ve sol dekor kutuları */
   .side-decor {
     width: 100px;
@@ -72,8 +71,6 @@
   }
 
   .side-decor span {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
     color: #fff;
     font-weight: bold;
     font-size: 1.6rem;
@@ -81,6 +78,8 @@
     text-shadow: 0 0 5px #d4a017;
     text-transform: uppercase;
     font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    line-height: 1.6;
   }
 
   /* Ana içerik */
@@ -170,9 +169,10 @@
   <a href="#haberler">Son Haberler</a>
   <a href="#iletisim">İletişim</a>
 </nav>
-
 <main>
-  <div class="side-decor"><span>Cele</span></div>
+  <div class="side-decor">
+    <span>C<br>e<br>l<br>e</span>
+  </div>
 
   <div class="content">
     <section id="takim">
@@ -211,9 +211,10 @@
     </section>
   </div>
 
-  <div class="side-decor"><span>Ris</span></div>
+  <div class="side-decor">
+    <span>R<br>i<br>s</span>
+  </div>
 </main>
-
 <footer class="footer">
   &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
 </footer>
