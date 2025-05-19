@@ -12,6 +12,7 @@
     --card-bg: #222;
     --input-bg: #000;
   }
+
   [data-theme="light"] {
     --bg-color: #f5f5f5;
     --text-color: #222;
@@ -19,6 +20,7 @@
     --card-bg: #fff;
     --input-bg: #ddd;
   }
+
   body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -26,24 +28,8 @@
     margin: 0; padding: 0;
     overflow-x: hidden;
     transition: background 0.4s, color 0.4s;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) var(--bg-color);
   }
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--bg-color);
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--accent);
-    border-radius: 10px;
-    border: 3px solid var(--bg-color);
-    transition: background-color 0.3s;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #f1c40f;
-  }
+
   header {
     background-color: var(--card-bg);
     padding: 15px 20px;
@@ -53,9 +39,11 @@
     gap: 15px;
     border-bottom: 3px solid var(--accent);
   }
+
   header img {
     height: 60px;
   }
+
   header h1 {
     font-size: 2.2rem;
     color: var(--accent);
@@ -63,6 +51,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
   }
+
   .theme-toggle {
     background: none;
     border: 2px solid var(--accent);
@@ -72,6 +61,7 @@
     cursor: pointer;
     font-weight: bold;
   }
+
   nav {
     background-color: var(--card-bg);
     display: flex;
@@ -81,6 +71,7 @@
     padding: 15px 10px;
     border-bottom: 2px solid var(--accent);
   }
+
   nav a {
     color: var(--accent);
     text-decoration: none;
@@ -88,9 +79,11 @@
     font-size: 1.1rem;
     transition: color 0.3s;
   }
+
   nav a:hover {
     color: var(--text-color);
   }
+
   main {
     max-width: 1000px;
     margin: 30px auto;
@@ -101,6 +94,7 @@
     justify-content: space-between;
     align-items: flex-start;
   }
+
   .side-decor {
     width: 60px;
     background: linear-gradient(135deg, var(--accent) 20%, transparent 80%);
@@ -113,6 +107,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .side-decor span {
     color: var(--text-color);
     font-weight: bold;
@@ -123,22 +118,27 @@
     text-align: center;
     line-height: 1.6;
   }
+
   .content {
     flex: 1;
     max-width: 800px;
     animation: fadeIn 1.2s ease-in-out;
   }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
   section {
     margin-bottom: 40px;
   }
+
   h2, h3 {
     color: var(--accent);
     margin-bottom: 15px;
   }
+
   ul.cards {
     list-style: none;
     display: flex;
@@ -147,6 +147,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
   li.card {
     background: var(--card-bg);
     border-left: 5px solid var(--accent);
@@ -157,19 +158,23 @@
     box-shadow: 0 0 8px var(--accent);
     transition: box-shadow 0.3s;
   }
+
   li.card:hover {
     box-shadow: 0 0 25px var(--accent);
   }
+
   li.card h3 {
     margin-bottom: 6px;
     font-size: 1.2rem;
   }
+
   li.card p {
     font-style: italic;
     font-weight: 500;
     color: #bbb;
     margin: 0;
   }
+
   .news p {
     background: var(--card-bg);
     padding: 15px 20px;
@@ -178,20 +183,24 @@
     margin-bottom: 15px;
     border-radius: 4px;
   }
+
   .contact a {
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
   }
+
   .contact a:hover {
     text-decoration: underline;
   }
+
   form {
     background-color: var(--card-bg);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px var(--accent);
   }
+
   input, textarea {
     width: 100%;
     padding: 10px;
@@ -202,10 +211,12 @@
     color: var(--text-color);
     font-size: 1rem;
   }
+
   textarea {
     resize: vertical;
     min-height: 100px;
   }
+
   button.submit {
     margin-top: 15px;
     padding: 10px 20px;
@@ -216,6 +227,7 @@
     font-weight: bold;
     cursor: pointer;
   }
+
   footer.footer {
     background-color: var(--card-bg);
     color: #999;
@@ -225,11 +237,13 @@
     border-top: 2px solid var(--accent);
     margin-top: 50px;
   }
+
   @media (max-width: 768px) {
     main {
       flex-direction: column;
       align-items: center;
     }
+
     .side-decor {
       display: none;
     }
@@ -237,6 +251,7 @@
 </style>
 </head>
 <body data-theme="dark">
+
 <header>
   <div style="display: flex; align-items: center; gap: 15px;">
     <img src="celeris_logo.png" alt="Celeris Logo" />
@@ -244,18 +259,22 @@
   </div>
   <button class="theme-toggle" onclick="toggleTheme()">🌓 Tema</button>
 </header>
+
 <nav>
   <a href="#takim">Takım</a>
   <a href="#haberler">Haberler</a>
   <a href="#iletisim">İletişim</a>
   <a href="#yorum">Yorum Bırak</a>
 </nav>
+
 <main>
   <div class="side-decor"><span>C<br>e<br>l<br>e</span></div>
+
   <div class="content">
     <section id="takim">
       <h2>Takım Kadrosu</h2>
       <ul class="cards">
+        <!-- Oyuncular -->
         <li class="card">
           <h3><a href="https://steamcommunity.com/profiles/76561199854312507" target="_blank">The Kenami</a></h3>
           <p>IGL - Rifler</p>
@@ -270,50 +289,56 @@
           <h3><a href="https://steamcommunity.com/profiles/76561199816121807" target="_blank">ClassDPersonel</a></h3>
           <p>Lurker</p>
           <p>13 Yaş / TR</p>
-       
-</li>
-</ul>
-</section>
-<section id="haberler" class="news">
-  <h2>Son Haberler</h2>
-  <p>7 Mayıs 2025: Celeris Esports yeni sponsorluk anlaşması imzaladı.</p>
-  <p>1 Nisan 2025: Takımımız büyük turnuvada 3. oldu!</p>
-  <p>15 Mart 2025: UnderStudio kişisel performansında yeni rekor kırdı.</p>
-</section>
-<section id="iletisim" class="contact">
-  <h2>İletişim</h2>
-  <p>Steam: <a href="https://steamcommunity.com/id/understudio" target="_blank">understudio</a></p>
-  <p>E-posta: <a href="mailto:info@celerisesports.com">info@celerisesports.com</a></p>
-</section>
-<section id="yorum">
-  <h3>Yorum Bırak</h3>
-  <form id="comment-form">
-    <label for="name">İsim:</label>
-    <input type="text" id="name" name="name" required />
-    <label for="comment">Yorum:</label>
-    <textarea id="comment" name="comment" required></textarea>
-    <button class="submit" type="submit">Gönder</button>
-  </form>
-</section>
-</div>
+        </li>
+        <li class="card">
+          <h3><a href="https://steamcommunity.com/profiles/76561199823805049" target="_blank">Emox</a></h3>
+          <p>Rifler</p>
+          <p>13 Yaş / TR</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="haberler" class="news">
+      <h2>Son Haberler</h2>
+      <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
+      <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
+      <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
+    </section>
+
+    <section id="iletisim" class="contact">
+      <h3>İletişim</h3>
+      <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
+      <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
+    </section>
+
+    <section id="yorum">
+      <h2>Takıma Mesaj Bırak</h2>
+      <form>
+        <label for="isim">İsim</label>
+        <input type="text" id="isim" name="isim" placeholder="Adınız...">
+
+        <label for="mesaj">Mesajınız</label>
+        <textarea id="mesaj" name="mesaj" placeholder="Takıma mesajınızı yazın..."></textarea>
+
+        <button class="submit" type="submit">Gönder</button>
+      </form>
+    </section>
+  </div>
+
+  <div class="side-decor"><span>R<br>i<br>s</span></div>
 </main>
+
 <footer class="footer">
-  &copy; 2025 Celeris Esports | Tüm Hakları Saklıdır.
+  &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
 </footer>
+
 <script>
   function toggleTheme() {
     const body = document.body;
-    if(body.getAttribute('data-theme') === 'dark') {
-      body.setAttribute('data-theme', 'light');
-    } else {
-      body.setAttribute('data-theme', 'dark');
-    }
+    const current = body.getAttribute("data-theme");
+    body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
   }
-  document.getElementById('comment-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Yorumunuz gönderildi, teşekkürler!');
-    this.reset();
-  });
 </script>
+
 </body>
 </html>
