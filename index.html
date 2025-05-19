@@ -10,33 +10,40 @@
     --text-color: #eee;
     --accent: #d4a017;
     --card-bg: #222;
-    --nav-bg: #1e1e1e;
+    --input-bg: #000;
   }
-  body.light {
+
+  [data-theme="light"] {
     --bg-color: #f5f5f5;
-    --text-color: #111;
+    --text-color: #222;
+    --accent: #d4a017;
     --card-bg: #fff;
-    --nav-bg: #ddd;
+    --input-bg: #ddd;
   }
+
   body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0; padding: 0;
     overflow-x: hidden;
-    transition: background-color 0.4s, color 0.4s;
+    transition: background 0.4s, color 0.4s;
   }
+
   header {
     background-color: var(--card-bg);
     padding: 15px 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     border-bottom: 3px solid var(--accent);
   }
+
   header img {
     height: 60px;
   }
+
   header h1 {
     font-size: 2.2rem;
     color: var(--accent);
@@ -44,18 +51,27 @@
     letter-spacing: 3px;
     text-transform: uppercase;
   }
+
+  .theme-toggle {
+    background: none;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
   nav {
-    background-color: var(--nav-bg);
+    background-color: var(--card-bg);
     display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    border-bottom: 2px solid var(--accent);
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px 10px;
+    border-bottom: 2px solid var(--accent);
   }
-  nav .links {
-    display: flex;
-    gap: 20px;
-  }
+
   nav a {
     color: var(--accent);
     text-decoration: none;
@@ -63,29 +79,24 @@
     font-size: 1.1rem;
     transition: color 0.3s;
   }
+
   nav a:hover {
     color: var(--text-color);
   }
-  nav button {
-    background: var(--accent);
-    border: none;
-    color: black;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+
   main {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 30px auto;
-    padding: 0 20px;
+    padding: 0 10px;
     display: flex;
-    gap: 40px;
-    justify-content: center;
+    gap: 25px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
   }
+
   .side-decor {
-    width: 100px;
+    width: 60px;
     background: linear-gradient(135deg, var(--accent) 20%, transparent 80%);
     border-radius: 20px;
     box-shadow: 0 0 15px var(--accent);
@@ -96,32 +107,38 @@
     align-items: center;
     justify-content: center;
   }
+
   .side-decor span {
     color: var(--text-color);
     font-weight: bold;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
     text-shadow: 0 0 5px var(--accent);
     text-transform: uppercase;
     text-align: center;
     line-height: 1.6;
   }
+
   .content {
-    flex-grow: 1;
-    max-width: 700px;
-    animation: fadeIn 1.5s ease-in;
+    flex: 1;
+    max-width: 800px;
+    animation: fadeIn 1.2s ease-in-out;
   }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
   section {
     margin-bottom: 40px;
   }
+
   h2, h3 {
     color: var(--accent);
     margin-bottom: 15px;
   }
+
   ul.cards {
     list-style: none;
     display: flex;
@@ -130,23 +147,34 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
   li.card {
     background: var(--card-bg);
     border-left: 5px solid var(--accent);
-    padding: 25px 15px;
+    padding: 20px 15px;
     width: 160px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 8px var(--accent);
-    user-select: none;
     transition: box-shadow 0.3s;
   }
+
   li.card:hover {
     box-shadow: 0 0 25px var(--accent);
   }
-  .card h3, .card p {
-    margin: 6px 0;
+
+  li.card h3 {
+    margin-bottom: 6px;
+    font-size: 1.2rem;
   }
+
+  li.card p {
+    font-style: italic;
+    font-weight: 500;
+    color: #bbb;
+    margin: 0;
+  }
+
   .news p {
     background: var(--card-bg);
     padding: 15px 20px;
@@ -155,14 +183,51 @@
     margin-bottom: 15px;
     border-radius: 4px;
   }
-  .contact a, .card a {
+
+  .contact a {
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
   }
-  .contact a:hover, .card a:hover {
+
+  .contact a:hover {
     text-decoration: underline;
   }
+
+  form {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--accent);
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  button.submit {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
   footer.footer {
     background-color: var(--card-bg);
     color: #999;
@@ -172,51 +237,44 @@
     border-top: 2px solid var(--accent);
     margin-top: 50px;
   }
-  .comment-box {
-    margin-top: 30px;
-  }
-  .comment-box textarea {
-    width: 100%;
-    height: 100px;
-    border-radius: 6px;
-    border: none;
-    padding: 10px;
-    resize: none;
-    font-size: 1rem;
-  }
-  .comment-box button {
-    margin-top: 10px;
-    background: var(--accent);
-    color: black;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+
+  @media (max-width: 768px) {
+    main {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .side-decor {
+      display: none;
+    }
   }
 </style>
 </head>
-<body>
+<body data-theme="dark">
+
 <header>
-  <img src="celeris_logo.png" alt="Celeris Logo" />
-  <h1>Celeris Esports</h1>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <img src="celeris_logo.png" alt="Celeris Logo" />
+    <h1>Celeris Esports</h1>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Tema</button>
 </header>
+
 <nav>
-  <div class="links">
-    <a href="#takim">Takım</a>
-    <a href="#haberler">Haberler</a>
-    <a href="#iletisim">İletişim</a>
-  </div>
-  <button onclick="toggleTheme()">🌜/🌞</button>
+  <a href="#takim">Takım</a>
+  <a href="#haberler">Haberler</a>
+  <a href="#iletisim">İletişim</a>
+  <a href="#yorum">Yorum Bırak</a>
 </nav>
+
 <main>
-  <div class="side-decor">
-    <span>C<br>e<br>l<br>e</span>
-  </div>
+  <div class="side-decor"><span>C<br>e<br>l<br>e</span></div>
+
   <div class="content">
     <section id="takim">
       <h2>Takım Kadrosu</h2>
       <ul class="cards">
+        <!-- Oyuncular -->
         <li class="card">
           <h3><a href="https://steamcommunity.com/profiles/76561199854312507" target="_blank">The Kenami</a></h3>
           <p>IGL - Rifler</p>
@@ -239,34 +297,48 @@
         </li>
       </ul>
     </section>
+
     <section id="haberler" class="news">
       <h2>Son Haberler</h2>
       <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
       <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
-      <p>- Ekibimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
+      <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
     </section>
+
     <section id="iletisim" class="contact">
       <h3>İletişim</h3>
       <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
       <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
     </section>
-    <section class="comment-box">
-      <h3>Yorum Bırak</h3>
-      <textarea placeholder="Mesajınızı yazın..."></textarea>
-      <button onclick="alert('Mesajınız alındı!')">Gönder</button>
+
+    <section id="yorum">
+      <h2>Takıma Mesaj Bırak</h2>
+      <form>
+        <label for="isim">İsim</label>
+        <input type="text" id="isim" name="isim" placeholder="Adınız...">
+
+        <label for="mesaj">Mesajınız</label>
+        <textarea id="mesaj" name="mesaj" placeholder="Takıma mesajınızı yazın..."></textarea>
+
+        <button class="submit" type="submit">Gönder</button>
+      </form>
     </section>
   </div>
-  <div class="side-decor">
-    <span>R<br>i<br>s</span>
-  </div>
+
+  <div class="side-decor"><span>R<br>i<br>s</span></div>
 </main>
+
 <footer class="footer">
   &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
 </footer>
+
 <script>
-function toggleTheme() {
-  document.body.classList.toggle('light');
-}
+  function toggleTheme() {
+    const body = document.body;
+    const current = body.getAttribute("data-theme");
+    body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+  }
 </script>
+
 </body>
 </html>
