@@ -5,119 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Celeris Esports Takımı</title>
 <style>
+  :root {
+    --bg-color: #121212;
+    --text-color: #eee;
+    --accent: #d4a017;
+    --card-bg: #222;
+    --input-bg: #000;
+  }
+  [data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --text-color: #222;
+    --accent: #d4a017;
+    --card-bg: #fff;
+    --input-bg: #ddd;
+  }
   body {
-    background-color: #121212;
-    color: #eee;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0; padding: 0;
     overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--bg-color);
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 10px;
+    border: 3px solid var(--bg-color);
+    transition: background-color 0.3s;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #f1c40f;
   }
   header {
-    background-color: #222;
+    background-color: var(--card-bg);
     padding: 15px 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
-    border-bottom: 3px solid #d4a017;
+    border-bottom: 3px solid var(--accent);
   }
   header img {
     height: 60px;
   }
   header h1 {
     font-size: 2.2rem;
-    color: #d4a017;
+    color: var(--accent);
     margin: 0;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
+  .theme-toggle {
+    background: none;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
   nav {
-    background-color: #1e1e1e;
+    background-color: var(--card-bg);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 35px;
-    padding: 15px 0;
-    border-bottom: 2px solid #d4a017;
+    gap: 25px;
+    padding: 15px 10px;
+    border-bottom: 2px solid var(--accent);
   }
   nav a {
-    color: #d4a017;
+    color: var(--accent);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
     transition: color 0.3s;
   }
   nav a:hover {
-    color: #fff;
+    color: var(--text-color);
   }
   main {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 30px auto;
-    padding: 0 20px;
+    padding: 0 10px;
     display: flex;
-    gap: 40px;
-    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
   }
-  /* SOL SABİT SÜTUN */
-  .side-decor-left {
-    width: 100px;
-    background: linear-gradient(135deg, #d4a017 20%, transparent 80%);
+  .side-decor {
+    width: 60px;
+    background: linear-gradient(135deg, var(--accent) 20%, transparent 80%);
     border-radius: 20px;
-    box-shadow: 0 0 15px #d4a017aa;
+    box-shadow: 0 0 15px var(--accent);
     height: 400px;
-    position: fixed;
+    position: sticky;
     top: 100px;
-    left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
   }
-  .side-decor-left span {
-    color: #fff;
+  .side-decor span {
+    color: var(--text-color);
     font-weight: bold;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px #d4a017;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px var(--accent);
     text-transform: uppercase;
-    font-family: 'Segoe UI', sans-serif;
     text-align: center;
     line-height: 1.6;
   }
-  /* SAĞ SABİT SÜTUN */
-  .side-decor-right {
-    width: 100px;
-    background: linear-gradient(135deg, #d4a017 20%, transparent 80%);
-    border-radius: 20px;
-    box-shadow: 0 0 15px #d4a017aa;
-    height: 400px;
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-  }
-  .side-decor-right span {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px #d4a017;
-    text-transform: uppercase;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    line-height: 1.6;
-  }
-  /* ORTA İÇERİK */
   .content {
-    flex-grow: 1;
-    max-width: 600px; /* biraz daralttım */
+    flex: 1;
+    max-width: 800px;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   section {
     margin-bottom: 40px;
   }
   h2, h3 {
-    color: #d4a017;
+    color: var(--accent);
     margin-bottom: 15px;
   }
   ul.cards {
@@ -129,23 +148,21 @@
     justify-content: center;
   }
   li.card {
-    background: #222;
-    border-left: 5px solid #d4a017;
-    padding: 25px 15px;
+    background: var(--card-bg);
+    border-left: 5px solid var(--accent);
+    padding: 20px 15px;
     width: 160px;
     text-align: center;
-    cursor: default;
     border-radius: 10px;
-    box-shadow: 0 0 8px #d4a017;
-    user-select: none;
+    box-shadow: 0 0 8px var(--accent);
     transition: box-shadow 0.3s;
   }
   li.card:hover {
-    box-shadow: 0 0 25px #d4a017;
+    box-shadow: 0 0 25px var(--accent);
   }
   li.card h3 {
     margin-bottom: 6px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   li.card p {
     font-style: italic;
@@ -153,180 +170,150 @@
     color: #bbb;
     margin: 0;
   }
-  footer.footer {
-    background-color: #222;
-    color: #999;
-    text-align: center;
-    padding: 18px 0;
-    font-size: 0.9rem;
-    border-top: 2px solid #d4a017;
-    margin-top: 50px;
-  }
   .news p {
-    background: #222;
+    background: var(--card-bg);
     padding: 15px 20px;
-    border-left: 5px solid #d4a017;
+    border-left: 5px solid var(--accent);
     font-weight: 600;
     margin-bottom: 15px;
     border-radius: 4px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
   }
   .contact a {
-    color: #d4a017;
+    color: var(--accent);
     text-decoration: none;
     font-weight: 600;
   }
   .contact a:hover {
     text-decoration: underline;
   }
-  .card a {
-    color: #d4a017;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .card a:hover {
-    color: #fff;
-    text-decoration: underline;
-  }
-
-  /* YORUM BÖLÜMÜ */
-  .yorum-bolumu {
-    background: #222;
-    border: 2px solid #d4a017;
+  form {
+    background-color: var(--card-bg);
     padding: 20px;
     border-radius: 10px;
-    max-width: 700px;
-    margin: 0 auto 50px auto;
+    box-shadow: 0 0 10px var(--accent);
   }
-  .yorum-bolumu h3 {
-    color: #d4a017;
-    margin-bottom: 15px;
-  }
-  .yorum-bolumu textarea {
+  input, textarea {
     width: 100%;
-    height: 100px;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #555;
-    background-color: black;
-    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+  textarea {
     resize: vertical;
-    font-size: 1rem;
-    margin-bottom: 10px;
+    min-height: 100px;
   }
-  .yorum-bolumu textarea::placeholder {
-    color: #888;
-  }
-  .yorum-bolumu button {
-    background-color: #d4a017;
-    color: #121212;
-    font-weight: 700;
+  button.submit {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--accent);
+    color: #000;
     border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
+    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
   }
-  .yorum-bolumu button:hover {
-    background-color: #b48e10;
+  footer.footer {
+    background-color: var(--card-bg);
+    color: #999;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 0.9rem;
+    border-top: 2px solid var(--accent);
+    margin-top: 50px;
   }
-
-  /* Animasyonlu Giriş / Fade-in */
-  .fade-in {
-    opacity: 0;
-    animation: fadeInAnim 1.2s forwards;
-  }
-  @keyframes fadeInAnim {
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* Responsive Navbar */
-  @media (max-width: 700px) {
-    nav {
-      flex-direction: column;
-      gap: 10px;
-      padding: 10px 0;
-    }
+  @media (max-width: 768px) {
     main {
       flex-direction: column;
-      margin: 20px 10px;
-      padding: 0;
+      align-items: center;
     }
-    .content {
-      max-width: 100%;
-    }
-    /* Sabit kutular mobilde gizlensin */
-    .side-decor-left, .side-decor-right {
+    .side-decor {
       display: none;
     }
   }
 </style>
 </head>
-<body>
-
-<header class="fade-in">
-  <img src="celeris_logo.png" alt="Celeris Logo" />
-  <h1>Celeris Esports</h1>
-</header>
-
-<nav class="fade-in">
-  <a href="#takim">Takım</a>
-  <a href="#haberler">Son Haberler</a>
-  <a href="#iletisim">İletişim</a>
-</nav>
-
-<main>
-  <div class="side-decor-left fade-in">
-    <span>C<br>e<br>l<br>e</span>
+<body data-theme="dark">
+<header>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <img src="celeris_logo.png" alt="Celeris Logo" />
+    <h1>Celeris Esports</h1>
   </div>
-
-  <div class="content fade-in">
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Tema</button>
+</header>
+<nav>
+  <a href="#takim">Takım</a>
+  <a href="#haberler">Haberler</a>
+  <a href="#iletisim">İletişim</a>
+  <a href="#yorum">Yorum Bırak</a>
+</nav>
+<main>
+  <div class="side-decor"><span>C<br>e<br>l<br>e</span></div>
+  <div class="content">
     <section id="takim">
       <h2>Takım Kadrosu</h2>
       <ul class="cards">
         <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199854312507" target="_blank" rel="noopener noreferrer">The Kenami</a></h3>
+          <h3><a href="https://steamcommunity.com/profiles/76561199854312507" target="_blank">The Kenami</a></h3>
           <p>IGL - Rifler</p>
           <p>13 Yaş / TR</p>
         </li>
         <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199129530106/" target="_blank" rel="noopener noreferrer">UnderStudio</a></h3>
+          <h3><a href="https://steamcommunity.com/profiles/76561199129530106/" target="_blank">UnderStudio</a></h3>
           <p>AWPer</p>
           <p>13 Yaş / TR</p>
         </li>
         <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199816121807" target="_blank" rel="noopener noreferrer">ClassDPersonel</a></h3>
+          <h3><a href="https://steamcommunity.com/profiles/76561199816121807" target="_blank">ClassDPersonel</a></h3>
           <p>Lurker</p>
           <p>13 Yaş / TR</p>
-        </li>
-        <li class="card">
-      <h3><a href="https://steamcommunity.com/profiles/76561199096974508" target="_blank" rel="noopener noreferrer">SelamAx</a></h3>
-      <p>Support</p>
-      <p>13 Yaş / TR</p>
-    </li>
-  </ul>
+       
+</li>
+</ul>
 </section>
-
 <section id="haberler" class="news">
   <h2>Son Haberler</h2>
-  <p>Takımımız, önümüzdeki ay yapılacak büyük turnuvaya hazırlanıyor. Takipte kalın!</p>
+  <p>7 Mayıs 2025: Celeris Esports yeni sponsorluk anlaşması imzaladı.</p>
+  <p>1 Nisan 2025: Takımımız büyük turnuvada 3. oldu!</p>
+  <p>15 Mart 2025: UnderStudio kişisel performansında yeni rekor kırdı.</p>
 </section>
-
-<section class="yorum-bolumu">
-  <h3>Yorum Yaz</h3>
-  <textarea placeholder="Yorumunuzu buraya yazın..."></textarea>
-  <button>Gönder</button>
-</section>
-
 <section id="iletisim" class="contact">
   <h2>İletişim</h2>
-  <p>
-    E-posta: <a href="mailto:contact@celerisesports.com">contact@celerisesports.com</a><br />
-    Telefon: +90 555 123 4567
-  </p>
+  <p>Steam: <a href="https://steamcommunity.com/id/understudio" target="_blank">understudio</a></p>
+  <p>E-posta: <a href="mailto:info@celerisesports.com">info@celerisesports.com</a></p>
 </section>
+<section id="yorum">
+  <h3>Yorum Bırak</h3>
+  <form id="comment-form">
+    <label for="name">İsim:</label>
+    <input type="text" id="name" name="name" required />
+    <label for="comment">Yorum:</label>
+    <textarea id="comment" name="comment" required></textarea>
+    <button class="submit" type="submit">Gönder</button>
+  </form>
+</section>
+</div>
+</main>
+<footer class="footer">
+  &copy; 2025 Celeris Esports | Tüm Hakları Saklıdır.
+</footer>
+<script>
+  function toggleTheme() {
+    const body = document.body;
+    if(body.getAttribute('data-theme') === 'dark') {
+      body.setAttribute('data-theme', 'light');
+    } else {
+      body.setAttribute('data-theme', 'dark');
+    }
+  }
+  document.getElementById('comment-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Yorumunuz gönderildi, teşekkürler!');
+    this.reset();
+  });
+</script>
+</body>
+</html>
