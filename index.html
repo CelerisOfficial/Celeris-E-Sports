@@ -268,7 +268,6 @@ align-items: center;
   <a href="#takim">Takım</a>
   <a href="#haberler">Haberler</a>
   <a href="#iletisim">İletişim</a>
-  <a href="#yorum">Yorum Bırak</a>
 </nav>
 
 <main>
@@ -333,10 +332,23 @@ align-items: center;
 
 <script>
   function toggleTheme() {
-    const body = document.body;
-    const current = body.getAttribute("data-theme");
-    body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-  }
+  const body = document.body;
+  const current = body.getAttribute("data-theme");
+  const newTheme = current === "dark" ? "light" : "dark";
+  body.setAttribute("data-theme", newTheme);
+
+  // Buton metnini değiştir
+  const btn = document.querySelector('.theme-toggle');
+  btn.textContent = newTheme === 'dark' ? '🌓 Tema' : '☀️ Tema';
+}
+
+// Sayfa açıldığında buton metnini tema durumuna göre ayarla
+window.addEventListener('DOMContentLoaded', () => {
+  const theme = document.body.getAttribute('data-theme');
+  const btn = document.querySelector('.theme-toggle');
+  btn.textContent = theme === 'dark' ? '🌓 Tema' : '☀️ Tema';
+});
+
 </script>
 
 </body>
