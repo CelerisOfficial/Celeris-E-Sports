@@ -102,13 +102,13 @@
     border-radius: 20px;
     box-shadow: 0 0 15px var(--accent);
     height: 400px;
-    /* position: sticky; removed */
     position: fixed;
     top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
+    /* hareketi engellemek için position fixed yeterli */
   }
 
   .side-decor:first-of-type {
@@ -150,7 +150,6 @@
     margin-bottom: 15px;
   }
 
-  /* Oyuncu isimlerini sarı yaptım */
   li.card h3 a {
     color: var(--accent);
     text-decoration: none;
@@ -294,83 +293,30 @@
     <section id="takim">
       <h2>Takım Kadrosu</h2>
       <ul class="cards">
-        <!-- Oyuncular -->
         <li class="card">
           <h3><a href="https://steamcommunity.com/profiles/76561199854312507" target="_blank">The Kenami</a></h3>
           <p>IGL - Rifler</p>
           <p>13 Yaş / TR</p>
         </li>
-        <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199129530106/" target="_blank">UnderStudio</a></h3>
-          <p>AWPer</p>
-          <p>13 Yaş / TR</p>
-        </li>
-        <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199816121807" target="_blank">ClassDPersonel</a></h3>
-          <p>Lurker</p>
-          <p>13 Yaş / TR</p>
-        </li>
-        <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199823805049" target="_blank">Emox</a></h3>
-          <p>Rifler</p>
-          <p>13 Yaş / TR</p>
-       
-        <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199823805049" target="_blank">Emox</a></h3>
-          <p>Rifler</p>
-          <p>13 Yaş / TR</p>
-        </li>
-        <li class="card">
-          <h3><a href="https://steamcommunity.com/profiles/76561199833344555" target="_blank">Zayden</a></h3>
-          <p>Support</p>
-          <p>14 Yaş / TR</p>
-        </li>
       </ul>
     </section>
-
-    <section id="haberler" class="news">
-      <h2>Son Haberler</h2>
-      <p>Yeni takımımız duyuruldu! The Kenami liderliğinde güçlü bir kadro oluşturduk.</p>
-      <p>İlk turnuvamız 25 Mayıs'ta, herkesi desteklemeye bekliyoruz.</p>
-    </section>
-
-    <section id="iletisim" class="contact">
-      <h2>İletişim</h2>
-      <p>E-posta: <a href="mailto:info@celerisesports.com">info@celerisesports.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/celerisesports" target="_blank">@celerisesports</a></p>
-
-      <form>
-        <label for="isim">İsim:</label>
-        <input type="text" id="isim" name="isim" required />
-
-        <label for="email">E-posta:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="mesaj">Mesaj:</label>
-        <textarea id="mesaj" name="mesaj" required></textarea>
-
-        <button type="submit" class="submit">Gönder</button>
-      </form>
-    </section>
   </div>
-
-  <div class="side-decor"><span>r<br>i<br>s</span></div>
 </main>
-
-<footer class="footer">
-  &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
-</footer>
 
 <script>
   function toggleTheme() {
     const body = document.body;
-    if (body.getAttribute('data-theme') === 'dark') {
+    if(body.getAttribute('data-theme') === 'dark') {
       body.setAttribute('data-theme', 'light');
     } else {
       body.setAttribute('data-theme', 'dark');
     }
   }
 </script>
+
+<footer class="footer">
+  © 2025 Celeris Esports Takımı
+</footer>
 
 </body>
 </html>
