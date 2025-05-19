@@ -93,6 +93,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
+    position: relative;
   }
 
   .side-decor {
@@ -101,11 +102,21 @@
     border-radius: 20px;
     box-shadow: 0 0 15px var(--accent);
     height: 400px;
-    position: sticky;
+    /* position: sticky; removed */
+    position: fixed;
     top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
+  }
+
+  .side-decor:first-of-type {
+    left: 10px;
+  }
+
+  .side-decor:last-of-type {
+    right: 10px;
   }
 
   .side-decor span {
@@ -137,6 +148,16 @@
   h2, h3 {
     color: var(--accent);
     margin-bottom: 15px;
+  }
+
+  /* Oyuncu isimlerini sarı yaptım */
+  li.card h3 a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  li.card h3 a:hover {
+    color: var(--text-color);
   }
 
   ul.cards {
@@ -264,7 +285,6 @@
   <a href="#takim">Takım</a>
   <a href="#haberler">Haberler</a>
   <a href="#iletisim">İletişim</a>
-  <a href="#yorum">Yorum Bırak</a>
 </nav>
 
 <main>
@@ -294,38 +314,47 @@
           <h3><a href="https://steamcommunity.com/profiles/76561199823805049" target="_blank">Emox</a></h3>
           <p>Rifler</p>
           <p>13 Yaş / TR</p>
+       
+        <li class="card">
+          <h3><a href="https://steamcommunity.com/profiles/76561199823805049" target="_blank">Emox</a></h3>
+          <p>Rifler</p>
+          <p>13 Yaş / TR</p>
+        </li>
+        <li class="card">
+          <h3><a href="https://steamcommunity.com/profiles/76561199833344555" target="_blank">Zayden</a></h3>
+          <p>Support</p>
+          <p>14 Yaş / TR</p>
         </li>
       </ul>
     </section>
 
     <section id="haberler" class="news">
       <h2>Son Haberler</h2>
-      <p>- Yavaştan artık başlıyoruz, ekip büyüyor ve güçleniyor.</p>
-      <p>- The Kenami'yi kadromuza kattık, birlikte daha iddialıyız.</p>
-      <p>- Ekipimizi hazırlayıp premier maçlara çıkmaya başlayacağız!</p>
+      <p>Yeni takımımız duyuruldu! The Kenami liderliğinde güçlü bir kadro oluşturduk.</p>
+      <p>İlk turnuvamız 25 Mayıs'ta, herkesi desteklemeye bekliyoruz.</p>
     </section>
 
     <section id="iletisim" class="contact">
-      <h3>İletişim</h3>
-      <p>Discord: <a href="https://discord.gg/UnderStudio" target="_blank">UnderStudio</a></p>
-      <p>E-posta: <a href="mailto:arenacombat123@gmail.com">arenacombat123@gmail.com</a></p>
-    </section>
+      <h2>İletişim</h2>
+      <p>E-posta: <a href="mailto:info@celerisesports.com">info@celerisesports.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/celerisesports" target="_blank">@celerisesports</a></p>
 
-    <section id="yorum">
-      <h2>Takıma Mesaj Bırak</h2>
       <form>
-        <label for="isim">İsim</label>
-        <input type="text" id="isim" name="isim" placeholder="Adınız...">
+        <label for="isim">İsim:</label>
+        <input type="text" id="isim" name="isim" required />
 
-        <label for="mesaj">Mesajınız</label>
-        <textarea id="mesaj" name="mesaj" placeholder="Takıma mesajınızı yazın..."></textarea>
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required />
 
-        <button class="submit" type="submit">Gönder</button>
+        <label for="mesaj">Mesaj:</label>
+        <textarea id="mesaj" name="mesaj" required></textarea>
+
+        <button type="submit" class="submit">Gönder</button>
       </form>
     </section>
   </div>
 
-  <div class="side-decor"><span>R<br>i<br>s</span></div>
+  <div class="side-decor"><span>r<br>i<br>s</span></div>
 </main>
 
 <footer class="footer">
@@ -335,8 +364,11 @@
 <script>
   function toggleTheme() {
     const body = document.body;
-    const current = body.getAttribute("data-theme");
-    body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.setAttribute('data-theme', 'light');
+    } else {
+      body.setAttribute('data-theme', 'dark');
+    }
   }
 </script>
 
