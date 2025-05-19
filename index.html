@@ -108,7 +108,6 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
-    /* hareketi engellemek için position fixed yeterli */
   }
 
   .side-decor:first-of-type {
@@ -150,6 +149,7 @@
     margin-bottom: 15px;
   }
 
+  /* Oyuncu isimlerini sarı yaptım */
   li.card h3 a {
     color: var(--accent);
     text-decoration: none;
@@ -298,25 +298,58 @@
           <p>IGL - Rifler</p>
           <p>13 Yaş / TR</p>
         </li>
+        <li class="card">
+          <h3><a href="https://steamcommunity.com/profiles/76561199129530106/" target="_blank">UnderStudio</a></h3>
+          <p>AWPer</p>
+          <p>13 Yaş / TR</p>
+        </li>
+        <li class="card">
+          <h3><a href="https://steamcommunity.com/profiles/76561199816121807" target="_blank">ClassDPersonel</a></h3>
+          <p>Lurker</p>
+          <p>13 Yaş / TR</p>
+        </li>
+        <li class="card">
+          <h3><a href="https://steamcommunity.com/profiles/76561199823805049" target="_blank">Emox</a></h3>
+          <p>Rifler</p>
+          <p>13 Yaş / TR</p>
+        </li>
+        <li class="card">
+          <h3><a href="https://steamcommunity.com/profiles/76561199833344555" target="_blank">Zayden</a></h3>
+          <p>Support</p>
+          <p>14 Yaş / TR</p>
+        </li>
       </ul>
     </section>
-  </div>
+
+    <section id="haberler" class="news">
+      <h2>Son Haberler</h2>
+      <p>Yeni takımımız duyuruldu! The Kenami liderliğinde güçlü bir kadro oluşturduk.</p>
+      <p>İlk turnuvamız 25 Mayıs'ta, herkesi desteklemeye bekliyoruz.</p>
+    </section>
+
+    <section id="iletisim" class="contact">
+      <h2>İletişim</h2>
+      <p>E-posta: <a href="mailto:info@celerisesports.com">info@celerisesports.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/celerisesports" target="_blank">@celerisesports</a></p>
+
+      <form>
+        <label for="isim">İsim:</label>
+         </div>
+
+  <div class="side-decor"><span>r<br>i<br>s<br>&nbsp;</span></div>
 </main>
+
+<footer class="footer">
+  &copy; 2025 Celeris Esports. Tüm hakları saklıdır.
+</footer>
 
 <script>
   function toggleTheme() {
-    const body = document.body;
-    if(body.getAttribute('data-theme') === 'dark') {
-      body.setAttribute('data-theme', 'light');
-    } else {
-      body.setAttribute('data-theme', 'dark');
-    }
+    const currentTheme = document.body.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.body.setAttribute("data-theme", newTheme);
   }
 </script>
-
-<footer class="footer">
-  © 2025 Celeris Esports Takımı
-</footer>
 
 </body>
 </html>
